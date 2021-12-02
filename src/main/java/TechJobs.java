@@ -119,7 +119,71 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        //Im asuming that the arraylist is an array of objects.
+   // System.out.println("printJobs is not implemented yet");
+//    for(int i = 0; i < someJobs.size(); i++)
+//        for()
+//        {
+//
+//        }
+//    }
+//        for (HashMap<String, String> row : allJobs) {
+//
+//            String aValue = row.get("Location");
+//            System.out.println("Key: "+row+"\nValue: "+value);
+//            if (aValue.contains(value)) {
+//                jobs.add(row);
+//            }
+//        }
 
-        System.out.println("printJobs is not implemented yet");
+
+        for(HashMap<String, String> getM:someJobs)//outer for loop
+        {
+            for(String getSTR:getM.keySet())//inner for loop
+            {
+                String key = getSTR;//Get the key from the map
+                //if(key.equals("Location"))
+                {
+                    String value = getM.get(getSTR);//values of keys
+                    System.out.println("Key: "+key+"\nValue: "+value);
+                }
+            }
+        }
+        //Inner always completes all of its steps before outer
+        //Similar to turtle and Rabbit story
+    }
+
+    private static void printJobs(ArrayList<HashMap<String, String>> someJobs, String search) {
+        //Im asuming that the arraylist is an array of objects.
+        // System.out.println("printJobs is not implemented yet");
+//    for(int i = 0; i < someJobs.size(); i++)
+//        for()
+//        {
+//
+//        }
+//    }
+//        for (HashMap<String, String> row : allJobs) {
+//
+//            String aValue = row.get("Location");
+//            System.out.println("Key: "+row+"\nValue: "+value);
+//            if (aValue.contains(value)) {
+//                jobs.add(row);
+//            }
+//        }
+
+
+        for(HashMap<String, String> getM:someJobs)//outer for loop
+        {
+            for(String getSTR:getM.keySet())//inner for loop
+            {
+                String key = getSTR;//Get the key from the map
+                if(key.equals(search))
+                {
+                    String value = getM.get(getSTR);//values of keys
+                    System.out.println("Key: "+key+"\nValue: "+value);
+                }
+            }
+        }
+
     }
 }
