@@ -89,34 +89,27 @@ public class JobData {
     /**
      * Search all columns for the given term
      *
-     * @param value The search term to look for
+     * @param searchTerm The search term to look for
      * @return      List of all jobs with at least one field containing the value
      */
-    public static ArrayList<HashMap<String, String>> findByValue(String value) {
-        HashMap<String,String> map = new HashMap<>();
+    public static ArrayList<HashMap<String, String>> findByValue(String searchTerm) {
+        //HashMap<String,String> map = new HashMap<>();
         ArrayList<HashMap<String,String>> mapList = new ArrayList<>();
         // load data, if not already loaded
         loadData();
         // TODO - implement this method
 
-        for(HashMap<String, String> getM:allJobs)//outer for loop
+        for(HashMap<String, String> job:allJobs)//outer for loop
         {
-            for(String getSTR:getM.keySet())//inner for loop
+            for(String header:job.keySet())//inner for loop
             {
-                String key = getSTR;//Get the key from the map
-                if(key.equalsIgnoreCase(value))//if(keys.contains(value)==true)//duplicate key found
+                String v = job.get(header);
+                v = v.toLowerCase();
+                searchTerm = searchTerm.toLowerCase();
+
+                if(v.contains(searchTerm))//if(keys.contains(value)==true)//duplicate key found
                 {
-                    // continue;//Skip iteration
-                    for (HashMap<String, String> getI : mapList)
-                    {
-                        for(String getSTR1:getI.keySet())//inner for loop
-                        {
-                            if(getSTR1.equalsIgnoreCase(value)==false)
-                            {
-                                mapList.add(getM);
-                            }
-                        }
-                    }
+                    mapList.add(job);
                 }
             }
         }

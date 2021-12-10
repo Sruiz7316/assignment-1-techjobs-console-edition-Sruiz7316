@@ -119,21 +119,23 @@ public class TechJobs {
 
     // Print a list of jobs
 
-    private static void printJobs(ArrayList<HashMap<String, String>> allJobs, String search) {
+    private static void printJobs(ArrayList<HashMap<String, String>> allJobs) {
 
-
-        for(HashMap<String, String> getM:allJobs)//outer for loop
-        {
-            for(String getSTR:getM.keySet())//inner for loop
+        if (allJobs.size() == 0) {
+            System.out.println("No Results");
+        } else {
+            for (HashMap<String, String> getM : allJobs)//outer for loop
             {
-                String key = getSTR;//Get the key from the map
-                if(key.equals(search))
+                System.out.println("*****");
+                for (String getSTR : getM.keySet())//inner for loop
                 {
                     String value = getM.get(getSTR);//values of keys
-                    System.out.println("Key: "+key+"\nValue: "+value);
+                    System.out.println(getSTR + " : " + value);
                 }
+                System.out.println("***** \n");
             }
         }
+    }
+
 
     }
-}
